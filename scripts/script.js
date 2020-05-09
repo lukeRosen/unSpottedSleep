@@ -1,8 +1,8 @@
 import printColor from './workerUtilities.js';
 
 console.warn('Beginning workerA.');
-new Worker('workerScriptA.js');
+new Worker('scripts/workerScriptA.js');
 console.warn('Beginning workerB.');
-new Worker('workerScriptB.js');
+new Worker('scripts/workerScriptB.js');
 
 console.warn('Main script complete.');
