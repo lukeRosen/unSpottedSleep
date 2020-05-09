@@ -7,7 +7,7 @@
 //prints 'lineCount' number of lines with 'color' background-color
 function printColors(color, lineCount){
   for(let i = 0; i < lineCount; i++){
-    console.log(`%c$Line number ${i}`, `background-color: ${color};`);
+    console.log(`%cLine number ${i}`, `background-color: ${color};`);
   }
 }
 
