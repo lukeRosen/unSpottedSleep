@@ -1,3 +1,5 @@
+console.log('Loaded login.js');
+
 const queryStringParams = {
   client_id:     'fe1fe9b4de44453abe5ffb8f2a90ec98',
   response_type: 'token',
