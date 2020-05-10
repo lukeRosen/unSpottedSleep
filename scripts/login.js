@@ -4,6 +4,7 @@ const queryStringParams = {
   client_id:     'fe1fe9b4de44453abe5ffb8f2a90ec98',
   response_type: 'token',
   redirect_uri:  'https://lukerosen.github.io/unSpottedSleep/mainApp',
+  scope: 'playlist-modify-private', //additional scopes are space delimited
 }
 const spotifyEndpoint = 'https://accounts.spotify.com/authorize';
 
