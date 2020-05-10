@@ -1,0 +1,8 @@
+.button-display {
+  display: block;
+  padding: 0.5em 1em;
+  background-color: #00BFFF;
+}
+.button-display:hover {
+  background-color: #65D8FF;
+}
