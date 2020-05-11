@@ -45,6 +45,6 @@ function makeNewPlaylist(uId){
     })
   })
     .then(response => response.json())
-    .then(obj => postResp = obj);
+    .then(obj => postResp = obj)
     .catch(err => console.error(`An error occured in making a new playlist. Message was: ${err.message}`));
 }
