@@ -4,7 +4,7 @@ const accessToken = implicitGrantResp.find(str => str.indexOf('access_token') ==
 let uId;
 let postResp;
 
-(new Promise.resolve(getUserId(accessToken)))
+Promise.resolve(getUserId(accessToken))
   .then(() => makeNewPlaylist(uId))
   .finally(() => console.log('Completed.'));
 
