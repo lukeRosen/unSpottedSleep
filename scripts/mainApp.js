@@ -39,7 +39,7 @@ function makeNewPlaylist(uId){
       Authorization: 'Bearer ' + accessToken
     },
     body: JSON.stringify({
-      name: 'unSpottedSleep Playlist',
+      name: 'unSpottedSleep',
       public: false,
       description: 'Currently you\'ll probably want to delete this, or else it\'ll stack up.'
     })
