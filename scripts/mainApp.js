@@ -53,13 +53,27 @@ function makeNewPlaylist(uId){
 
 //for setting up the numeric HUD
 function setupDisplay(){
-  let inputs = document.body.querySelectorAll('.inputOption');
+  var inputs = document.body.querySelectorAll('.inputOption');
 
   for(const input of inputs){
     let display = input.querySelector('.valDisplay');
     let inputElem = input.querySelector('input');
+    let toggle = input.querySelector('.toggleBlock');
 
-    display.textContent = Number(inputElem.value).toFixed(1);
-    inputElem.addEventListener('input', () => display.textContent = Number(inputElem.value).toFixed(1));
+    display.textContent = Number(inputElem.value).toFixed(floatStep(inputElem));
+    inputElem.addEventListener('input', () => display.textContent = Number(inputElem.value).toFixed(floatStep(inputElem)));
+
+    toggle.addEventListener('click', () => {
+      inputElem.disabled = !inputElem.disabled;
+      input.classList.toggle('off');
+    })
   }
+}
+
+//helper function for .toFixed in setupDisplay
+function floatStep(input){
+  let value = Number(input.getAttribute('step'));
+  if(Math.floor(value) === value) return 0; //no decimal portion
+  
+  return 1; //has decimal portion keep 1 number after decimal
 }
