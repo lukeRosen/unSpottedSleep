@@ -1,0 +1,30 @@
+label {
+  display: inline-block;
+  width: 13em;
+  text-align: center;
+}
+
+.inputOption {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.sliderInfo {
+  display: flex;
+  align-items: center;
+  justify-content: space-around
+}
+
+input {
+  width: calc(250px - 2em);
+  height: 5em;
+}
+
+.valDisplay {
+  display: inline-block;
+  font-size: 2em;
+  width: 2em;
+  font-family: sans-serif;
+}
