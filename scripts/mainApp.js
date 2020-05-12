@@ -1,3 +1,5 @@
+setupDisplay();
+
 const implicitGrantResp = location.hash.substring(1).split('&');
 const accessToken = implicitGrantResp.find(str => str.indexOf('access_token') === 0).split('=')[1];
 
@@ -47,4 +49,17 @@ function makeNewPlaylist(uId){
     .then(response => response.json())
     .then(obj => postResp = obj)
     .catch(err => console.error(`An error occured in making a new playlist. Message was: ${err.message}`));
+}
+
+//for setting up the numeric HUD
+function setupDisplay(){
+  let inputs = document.body.querySelectorAll('.inputOption');
+
+  for(const input of inputs){
+    let display = input.querySelector('.valDisplay');
+    let inputElem = input.querySelector('input');
+
+    display.textContent = Number(inputElem.value).toFixed(1);
+    inputElem.addEventListener('input', () => display.textContent = Number(inputElem.value).toFixed(1));
+  }
 }
