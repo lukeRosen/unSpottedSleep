@@ -1,5 +1,9 @@
-body{
-  color: white;
+:root {
+  --cool-color: #EF50EF;
+}
+
+html{
+  color: var(--cool-color, white);
   background-color: black;
 }
 
