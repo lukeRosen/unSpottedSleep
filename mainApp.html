@@ -13,13 +13,13 @@
     <div class="optionSettings">
       <div class="inputOption">
         <div class="sliderInfo">
-          <label for="acousticness">acousticness</label>
-          <div class="valDisplay" for="acousticness"></div>
+          <label for="energy">energy</label>
+          <div class="valDisplay" for="energy"></div>
         </div>
-        <input type="range" id="acousticness" min="0" max="1" value="0.8" step="0.1">
+        <input type="range" id="energy" min="0" max="1" value="0.8" step="0.1">
         <div class="toggleBlock"><div class="indicator"></div></div>
       </div>
-
+      
       <div class="inputOption">
         <div class="sliderInfo">
           <label for="danceability">danceability</label>
@@ -28,70 +28,7 @@
         <input type="range" id="danceability" min="0" max="1" value="0.8" step="0.1">
         <div class="toggleBlock"><div class="indicator"></div></div>
       </div>
-
-      <div class="inputOption">
-        <div class="sliderInfo">
-          <label for="energy">energy</label>
-          <div class="valDisplay" for="energy"></div>
-        </div>
-        <input type="range" id="energy" min="0" max="1" value="0.8" step="0.1">
-        <div class="toggleBlock"><div class="indicator"></div></div>
-      </div>
-
-      <div class="inputOption">
-        <div class="sliderInfo">
-          <label for="instrumentalness">instrumentalness</label>
-          <div class="valDisplay" for="instrumentalness"></div>
-        </div>
-        <input type="range" id="instrumentalness" min="0" max="1" value="0.8" step="0.1">
-        <div class="toggleBlock"><div class="indicator"></div></div>
-      </div>
-
-      <div class="inputOption">
-        <div class="sliderInfo">
-          <label for="key">key</label>
-          <div class="valDisplay" for="key"></div>
-        </div>
-        <input type="range" id="key" min="0" max="12" value="0" step="1">
-        <div class="toggleBlock"><div class="indicator"></div></div>
-      </div>
-
-      <div class="inputOption">
-        <div class="sliderInfo">
-          <label for="loudness">loudness</label>
-          <div class="valDisplay" for="loudness"></div>
-        </div>
-        <input type="range" id="loudness" min="-60" max="0" value="-30" step="1">
-        <div class="toggleBlock"><div class="indicator"></div></div>
-      </div>
-
-      <div class="inputOption">
-        <div class="sliderInfo">
-          <label for="mode">mode</label>
-          <div class="valDisplay" for="mode"></div>
-        </div>
-        <input type="range" id="mode" min="0" max="1" value="1" step="1">
-        <div class="toggleBlock"><div class="indicator"></div></div>
-      </div>
-
-      <div class="inputOption">
-        <div class="sliderInfo">
-          <label for="popularity">popularity</label>
-          <div class="valDisplay" for="popularity"></div>
-        </div>
-        <input type="range" id="popularity" min="0" max="100" value="90" step="1">
-        <div class="toggleBlock"><div class="indicator"></div></div>
-      </div>
-
-      <div class="inputOption">
-        <div class="sliderInfo">
-          <label for="speechiness">speechiness</label>
-          <div class="valDisplay" for="speechiness"></div>
-        </div>
-        <input type="range" id="speechiness" min="0" max="1" value="0.3" step="0.1">
-        <div class="toggleBlock"><div class="indicator"></div></div>
-      </div>
-
+      
       <div class="inputOption">
         <div class="sliderInfo">
           <label for="tempo">tempo</label>
@@ -100,13 +37,76 @@
         <input type="range" id="tempo" min="0" max="240" value="60" step="0.1">
         <div class="toggleBlock"><div class="indicator"></div></div>
       </div>
-
+      
+      <div class="inputOption">
+        <div class="sliderInfo">
+          <label for="instrumentalness">instrumentalness</label>
+          <div class="valDisplay" for="instrumentalness"></div>
+        </div>
+        <input type="range" id="instrumentalness" min="0" max="1" value="0.8" step="0.1">
+        <div class="toggleBlock"><div class="indicator"></div></div>
+      </div>
+      
+      <div class="inputOption">
+        <div class="sliderInfo">
+          <label for="acousticness">acousticness</label>
+          <div class="valDisplay" for="acousticness"></div>
+        </div>
+        <input type="range" id="acousticness" min="0" max="1" value="0.8" step="0.1">
+        <div class="toggleBlock"><div class="indicator"></div></div>
+      </div>
+      
       <div class="inputOption">
         <div class="sliderInfo">
           <label for="valence">valence</label>
           <div class="valDisplay" for="valence"></div>
         </div>
         <input type="range" id="valence" min="0" max="1" value="0.8" step="0.1">
+        <div class="toggleBlock"><div class="indicator"></div></div>
+      </div>
+      
+      <div class="inputOption">
+        <div class="sliderInfo">
+          <label for="popularity">popularity</label>
+          <div class="valDisplay" for="popularity"></div>
+        </div>
+        <input type="range" id="popularity" min="0" max="100" value="90" step="1">
+        <div class="toggleBlock"><div class="indicator"></div></div>
+      </div>
+      
+      <div class="inputOption">
+        <div class="sliderInfo">
+          <label for="speechiness">speechiness</label>
+          <div class="valDisplay" for="speechiness"></div>
+        </div>
+        <input type="range" id="speechiness" min="0" max="1" value="0.3" step="0.1">
+        <div class="toggleBlock"><div class="indicator"></div></div>
+      </div>
+      
+      <div class="inputOption">
+        <div class="sliderInfo">
+          <label for="loudness">loudness</label>
+          <div class="valDisplay" for="loudness"></div>
+        </div>
+        <input type="range" id="loudness" min="-60" max="0" value="-30" step="1">
+        <div class="toggleBlock"><div class="indicator"></div></div>
+      </div>
+      
+      <div class="inputOption">
+        <div class="sliderInfo">
+          <label for="mode">mode</label>
+          <div class="valDisplay" for="mode"></div>
+        </div>
+        <input type="range" id="mode" min="0" max="1" value="1" step="1">
+        <div class="toggleBlock"><div class="indicator"></div></div>
+      </div>
+      
+      <div class="inputOption">
+        <div class="sliderInfo">
+          <label for="key">key</label>
+          <div class="valDisplay" for="key"></div>
+        </div>
+        <input type="range" id="key" min="0" max="12" value="0" step="1">
         <div class="toggleBlock"><div class="indicator"></div></div>
       </div>
     </div>
