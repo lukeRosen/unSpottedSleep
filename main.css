@@ -1,3 +1,4 @@
+
 label {
   display: inline-block;
   width: 13em;
@@ -25,6 +26,21 @@ input {
 .valDisplay {
   display: inline-block;
   font-size: 2em;
-  width: 2em;
+  width: 3em;
   font-family: sans-serif;
+}
+
+.toggleBlock {
+  width: 10px;
+  height: 5em;
+  margin-left: 5px;
+}
+.off .indicator {
+  background-color: white;
+  
+  width: 1px;
+  height: 95%;
+}
+.off {
+  color: var(--grey-color, grey);
 }
