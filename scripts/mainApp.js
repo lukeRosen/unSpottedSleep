@@ -3,12 +3,88 @@ setupDisplay();
 const implicitGrantResp = location.hash.substring(1).split('&');
 const accessToken = implicitGrantResp.find(str => str.indexOf('access_token') === 0).split('=')[1];
 
+const minPrefix = 'min_';
+const maxPrefix = 'max_';
+const tgtPrefix = 'target_';
+
+const optionSettingsPrefixes = {
+  energy:           maxPrefix,
+  danceability:     maxPrefix,
+  tempo:            maxPrefix,
+  instrumentalness: minPrefix,
+  acousticness:     minPrefix,
+  valence:          tgtPrefix,
+  popularity:       tgtPrefix,
+  speechiness:      maxPrefix,
+  loudness:         tgtPrefix,
+  mode:             tgtPrefix,
+  key:              tgtPrefix,
+}
+
 let uId;
 let postResp;
+let tracks;
 
-Promise.resolve(getUserId(accessToken))
-  .then(() => makeNewPlaylist(uId))
-  .finally(() => console.log('Completed.'));
+//makes a playlist, returns a Promise
+function generatePlaylist(){
+  return Promise.resolve(getUserId(accessToken))
+    .then(() => makeNewPlaylist(uId));
+}
+
+//gets the recommended tracks based on the user set inputs, returns a promise
+//mutates the variable "tracks"
+function getTracks(){
+  if(!uId) return;
+  
+  return fetch('https://api.spotify.com/v1/recommendations' + '?' + getOSqueryString() + '&market=US&limit=100', {
+    headers: {
+      Authorization: 'Bearer ' + accessToken
+    }
+  })
+    .then(resp => resp.json())
+    .then(parseRespObj)
+    .then(recTracks => tracks = recTracks);
+}
+
+//simplifies the recommended tracks response from the api
+function parseRespObj(respObj){
+  let tracksArr = respObj.tracks;
+  tracksArr = tracksArr
+    .filter(track => track.is_playable)
+    .map(track => {
+      let retObj = {};
+      retObj['name'] = track['name'];
+      retObj['time'] = track['duration_ms'];
+      retObj['uri']  = track['uri'];
+
+      return retObj;
+    });
+  
+  return tracksArr;
+}
+
+//returns a string representing the non-disabled input values set by the user
+//string can be added to the queryString
+function getOSqueryString(){
+  let paramArray = [];
+  let optionSettings = getOptionSettings();
+  for(let prop in optionSettings){
+    paramArray.push(`${optionSettingsPrefixes[prop]}${prop}=${optionSettings[prop]}`);
+  }
+  
+  return paramArray.join('&');
+}
+
+//gets non-disabled input values set by the user
+function getOptionSettings(){
+  let inputElems = document.querySelectorAll('.inputOption:not(.off) input');
+  let optionSettings = {};
+  for(let input of inputElems){
+      optionSettings[input.getAttribute('id')] = Number(input.value);
+  }
+  
+  return optionSettings;
+}
 
 //will mutate/set uId in globalThis
 function getUserId(accessToken){
