@@ -41,7 +41,8 @@ function generatePlaylist(){
 function getTracks(genre){
   if(!uId) return;
   
-  return fetch('https://api.spotify.com/v1/recommendations' + '?' + genre + '&' + getOSqueryString() + '&market=US&limit=100', {
+  let genreString = 'seed_genres=' + genre;
+  return fetch('https://api.spotify.com/v1/recommendations' + '?' + genreString + '&' + getOSqueryString() + '&market=US&limit=100', {
     headers: {
       Authorization: 'Bearer ' + accessToken
     }
