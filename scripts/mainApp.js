@@ -7,6 +7,10 @@ const minPrefix = 'min_';
 const maxPrefix = 'max_';
 const tgtPrefix = 'target_';
 
+const classicalVal = 'classical';
+const newAgeVal    = 'new-age';
+const popAndRockVal = 'pop,rock';
+
 const optionSettingsPrefixes = {
   energy:           maxPrefix,
   danceability:     maxPrefix,
