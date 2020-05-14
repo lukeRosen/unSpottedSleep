@@ -42,7 +42,8 @@ function getTracks(genre){
   if(!uId) return;
   
   let genreString = 'seed_genres=' + genre;
-  return fetch('https://api.spotify.com/v1/recommendations' + '?' + genreString + '&' + getOSqueryString() + '&market=US&limit=100', {
+  let paramString = getOSqueryString();
+  return fetch('https://api.spotify.com/v1/recommendations' + '?' + genreString + '&' + paramString, {
     headers: {
       Authorization: 'Bearer ' + accessToken
     }
@@ -69,7 +70,7 @@ function parseRespObj(respObj){
   return tracksArr;
 }
 
-//returns a string representing the non-disabled input values set by the user
+//returns a string representing the non-disabled input values set by the user and additional end param values
 //string can be added to the queryString
 function getOSqueryString(){
   let paramArray = [];
@@ -78,6 +79,7 @@ function getOSqueryString(){
     paramArray.push(`${optionSettingsPrefixes[prop]}${prop}=${optionSettings[prop]}`);
   }
   
+  paramArray.push('market=from_token', 'limit=100');
   return paramArray.join('&');
 }
 
