@@ -35,12 +35,13 @@ function generatePlaylist(){
     .then(() => makeNewPlaylist(uId));
 }
 
+//takes in one of the constant [genre]Val strings defined above
 //gets the recommended tracks based on the user set inputs, returns a promise
 //mutates the variable "tracks"
-function getTracks(){
+function getTracks(genre){
   if(!uId) return;
   
-  return fetch('https://api.spotify.com/v1/recommendations' + '?' + getOSqueryString() + '&market=US&limit=100', {
+  return fetch('https://api.spotify.com/v1/recommendations' + '?' + genre + '&' + getOSqueryString() + '&market=US&limit=100', {
     headers: {
       Authorization: 'Bearer ' + accessToken
     }
