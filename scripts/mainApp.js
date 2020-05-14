@@ -1,5 +1,5 @@
 setupDisplay();
-[...document.body.querySelectorAll('.toggleBlock')].slice(4).foreach(elem => elem.click());
+[...document.body.querySelectorAll('.toggleBlock')].slice(4).forEach(elem => elem.click());
 
 const implicitGrantResp = location.hash.substring(1).split('&');
 const accessToken = implicitGrantResp.find(str => str.indexOf('access_token') === 0).split('=')[1];
