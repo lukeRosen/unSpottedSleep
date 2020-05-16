@@ -169,6 +169,12 @@ function setupDisplay(){
       input.classList.toggle('off');
     })
   }
+  
+  let sleepDurationSettingElem = document.querySelector('.sleepTimerDurationSetting');
+  let display = sleepDurationSettingElem.querySelector('.valDisplay');
+  let inputElem = sleepDurationSettingElem.querySelector('input[type="range"]');
+  inputElem.addEventListener('input', () => display.textContent = Number(inputElem.value));
+  display.textContent = Number(inputElem.value);
 }
 
 //helper function for .toFixed in setupDisplay
