@@ -10,10 +10,20 @@
     <link rel="stylesheet" href="topbar.css">
   </head>
   <body>
-    <div class="layer layer-sample">
-      <h2>
-        Hello!
-      </h2>
+    <div class="layer layer-timer">
+      <div class="topbar">
+        <a class="button-display backward" style="visibility: hidden;">Backward</a>
+        <h2>Timer</h2>
+        <a class="button-display forward">Forward</a>
+      </div>
+      
+      <div class="sleepTimerDurationSetting">
+        <div class="sleepTimerDurationDisplay">
+          <div class="valDisplay" for="minutes"></div>
+          <label for="minutes">minutes</label>
+        </div>
+        <input type="range" id="minutes" min="0" max="60" value="15" step="1">
+      </div>
     </div>
     
     <div class="layer layer-options">
@@ -144,7 +154,7 @@
       </div>
     </div>
     
-    <script src="scripts/layers.js"></script>
+    <script src="layers.js"></script>
     <script src="scripts/mainApp.js"></script>
   </body>
 </html>
