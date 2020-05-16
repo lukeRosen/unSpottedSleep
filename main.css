@@ -77,6 +77,20 @@
   color: var(--grey-color, grey);
 }
 
+.sleepTimerDurationSetting{
+  text-align: center;
+}
+.sleepTimerDurationSetting .valDisplay {
+  width: auto;
+  font-size: 5em;
+}
+.sleepTimerDurationSetting input[type="range"] {
+  padding: 1em;
+  position: relative;
+  bottom: 1em;
+  width: 20em;
+}
+
 .unshown {
   display: none;
 }
