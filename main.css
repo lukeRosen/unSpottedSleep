@@ -19,7 +19,7 @@
 }
 
 .genre {
-  margin: 1em 1.8em;
+  margin: 1em 0.5em;
 }
 .genreSelection label {
   display: inline-block;
@@ -33,6 +33,9 @@
   width: 5em;
   padding: 0.3em;
   border-radius: 0.5em;
+  
+  box-shadow: -1px -1px 1px var(--grey-color-lighter, white),
+               1px  1px 1px var(--grey-color-darker, grey);
 }
 .genre input {
   display: none;
