@@ -1,8 +1,5 @@
-setupDisplay();
-[...document.body.querySelectorAll('.toggleBlock')].slice(4).forEach(elem => elem.click());
-
-const implicitGrantResp = location.hash.substring(1).split('&');
-const accessToken = implicitGrantResp.find(str => str.indexOf('access_token') === 0).split('=')[1];
+//some constants-------------------
+const itemsToEnableFromTop = 3;
 
 const minPrefix = 'min_';
 const maxPrefix = 'max_';
@@ -25,11 +22,19 @@ const optionSettingsPrefixes = {
   mode:             tgtPrefix,
   key:              tgtPrefix,
 }
+//end of constants-----------------
+
+setupDisplay();
+[...document.body.querySelectorAll('.toggleBlock')].slice(itemsToEnableFromTop).forEach(elem => elem.click());
+
+const implicitGrantResp = location.hash.substring(1).split('&');
+const accessToken = implicitGrantResp.find(str => str.indexOf('access_token') === 0).split('=')[1];
 
 let uId;
 let postResp;
 let tracks;
 
+//beginning of functions----------------------------------------------------
 //makes a playlist, returns a Promise
 function generatePlaylist(){
   return Promise.resolve(getUserId(accessToken))
