@@ -1,4 +1,4 @@
-const startupLayer = 'sample';
+const startupLayer = 'timer';
 
 let currentLayerName = startupLayer;
 let layers = document.querySelectorAll('.layer');
@@ -24,3 +24,10 @@ function setLayer(layerClassname){
   toChangeTo.classList.remove('unshown');
   currentLayerName = layerClassname;
 }
+
+//setup for each individual navigation link
+//timer -> options
+document.querySelector('.layer-timer .forward').addEventListener('click', () => setLayer('options'));
+
+//timer <- options
+document.querySelector('.layer-options .backward').addEventListener('click', () => setLayer('timer'));
