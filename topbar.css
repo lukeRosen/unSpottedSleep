@@ -1,0 +1,14 @@
+.topbar h2 {
+  margin: 0;
+}
+.topbar {
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-gap: 1em;
+  
+  background-color: #00000085;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
