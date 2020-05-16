@@ -77,6 +77,16 @@ function parseRespObj(respObj){
   return tracksArr;
 }
 
+//returns a string that can be used as input to getTracks()
+//the string represents the user's selected genre, the selectable values come from the constants defined above
+function getSelectedGenre(){
+  for(radio of document.querySelectorAll('.genre input[type="radio"]')){
+    if(radio.checked) return radio.value;
+  }
+  
+  return undefined; //probably won't happen... hopefuly
+}
+
 //returns a string representing the non-disabled input values set by the user and additional end param values
 //string can be added to the queryString
 function getOSqueryString(){
