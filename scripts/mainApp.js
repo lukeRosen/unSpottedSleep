@@ -5,8 +5,9 @@ const minPrefix = 'min_';
 const maxPrefix = 'max_';
 const tgtPrefix = 'target_';
 
-const classicalVal = 'classical';
-const newAgeVal    = 'new-age';
+const classicalVal  = 'classical';
+const newAgeVal     = 'new-age';
+const sleepVal      = 'sleep';
 const popAndRockVal = 'pop,rock';
 
 const optionSettingsPrefixes = {
