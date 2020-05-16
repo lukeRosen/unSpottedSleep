@@ -1,4 +1,3 @@
-
 .inputOption label {
   display: inline-block;
   width: 13em;
@@ -76,4 +75,8 @@
 }
 .off {
   color: var(--grey-color, grey);
+}
+
+.unshown {
+  display: none;
 }
