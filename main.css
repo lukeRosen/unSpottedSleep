@@ -91,6 +91,24 @@
   width: 20em;
 }
 
+.layer-summary p, .layer-summary h3 {
+  margin-left: 10vw;
+  font-size: 1.3em;
+}
+.summaryTime {
+  color: var(--hot-color, white);
+  font-weight: bold;
+}
+.candidatePool ul {
+  padding: 0;
+  text-align: center;
+  list-style: none;
+  font-size: 1.3em;
+}
+.candidatePool li:nth-child(2n) {
+  color: var(--hot-color, white);
+}
+
 .unshown {
   display: none;
 }
