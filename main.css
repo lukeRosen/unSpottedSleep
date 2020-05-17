@@ -119,7 +119,7 @@
 .monospacedHighlight {
   font-family: monospace;
   background-color: var(--hot-color, black);
-  color: black;
+  color: white;
 }
 
 .unshown {
