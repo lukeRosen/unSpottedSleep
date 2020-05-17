@@ -39,6 +39,40 @@ let tracks;
 document.querySelector('.layer-options .forward').addEventListener('click', populateCandidatePool);
 
 //beginning of functions----------------------------------------------------
+//makes a new playlist with randomly sampled songs from the candidate pool for meeting the set sleep timer duration
+//this should be called AFTER getUserId(accessToken) and getTracks(getSelectedGenre()),
+//since they mutate and set "uId" and "tracks"
+async function setSleepTimer(){
+  await generatePlaylist().catch(err => alert(`Sorry :( Error message was: ${err.message}`));
+  
+  let toPublish = [];
+  let currentTimeLeft = getSleepTimerDuration() * 60 * 1000; //minutes to seconds, then seconds to milliseconds
+  
+  let nextSelection;
+  while(currentTimeLeft > 0){
+    nextSelection = tracks[Math.floor(Math.random() * tracks.length)];
+    toPublish.push(nextSelection.uri);
+    currentTimeLeft -= nextSelection.time;
+  }
+  
+  let response = await fetch(`https://api.spotify.com/v1/playlists/${postResp.id}/tracks`, {
+    method: 'POST',
+    headers: {
+      Authorization: 'Bearer ' + accessToken,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({uris: toPublish})
+  });
+  
+  response = await response.json();
+  if(response.hasOwnProperty('error')){
+    alert('Sorry, and error occured. Message was: ' + response.error.message);
+    throw response;
+  }
+  
+  //should resolve returned promise with undefined if completed without errors
+}
+
 //makes a playlist, returns a Promise
 function generatePlaylist(){
   return Promise.resolve(getUserId(accessToken))
