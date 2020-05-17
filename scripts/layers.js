@@ -1,4 +1,4 @@
-const startupLayer = 'summary';
+const startupLayer = 'timer';
 
 let currentLayerName = startupLayer;
 let layers = document.querySelectorAll('.layer');
