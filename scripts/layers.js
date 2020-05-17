@@ -37,3 +37,9 @@ document.querySelector('.layer-options .forward').addEventListener('click', () =
 
 //options <- summary
 document.querySelector('.layer-summary .backward').addEventListener('click', () => setLayer('options'));
+
+//summary -> finished
+document.querySelector('.layer-summary .forward').addEventListener('click', routeToFinished);
+function routeToFinished(){
+  setSleepTimer().then(setLayer('finished')).catch(console.warn);
+}
