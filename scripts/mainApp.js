@@ -73,7 +73,8 @@ async function populateCandidatePool(){
   await getTracks(getSelectedGenre());
   
   let ulElem = document.querySelector('.candidatePool ul');
-  for(const liElem of ulElem.querySelector('li')){
+  let currentLiElems = ulElem.querySelectorAll('li');
+  for(const liElem of currentLiElems){
     ulElem.removeChild(liElem);
   }
   
