@@ -22,7 +22,7 @@
           <div class="valDisplay" for="minutes"></div>
           <label for="minutes">minutes</label>
         </div>
-        <input type="range" id="minutes" min="0" max="60" value="15" step="1">
+        <input type="range" id="minutes" min="2" max="60" value="15" step="1">
       </div>
     </div>
     
@@ -154,7 +154,28 @@
       </div>
     </div>
     
-    <script src="scripts/layers.js"></script>
+    <div class="layer layer-summary">
+      <div class="topbar">
+        <a class="button-display backward">Backward</a>
+        <h2>Summary</h2>
+        <a class="button-display forward">Generate</a>
+      </div>
+      
+      <p>
+        The timer is set for <span class="summaryTime"></span>.
+      </p>
+      
+      <div class="candidatePool">
+      <h3>Candidates</h3>
+      <ul>
+        <li>yadda</li>
+        <li>yadda</li>
+        <li>yadda</li>
+      </ul>
+      </div>
+    </div>
+    
     <script src="scripts/mainApp.js"></script>
+    <script src="layers.js"></script>
   </body>
 </html>
