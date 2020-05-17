@@ -1,4 +1,4 @@
-const startupLayer = 'timer';
+const startupLayer = 'summary';
 
 let currentLayerName = startupLayer;
 let layers = document.querySelectorAll('.layer');
@@ -31,3 +31,9 @@ document.querySelector('.layer-timer .forward').addEventListener('click', () => 
 
 //timer <- options
 document.querySelector('.layer-options .backward').addEventListener('click', () => setLayer('timer'));
+
+//options -> summary
+document.querySelector('.layer-options .forward').addEventListener('click', () => setLayer('summary'));
+
+//options <- summary
+document.querySelector('.layer-summary .backward').addEventListener('click', () => setLayer('options'));
