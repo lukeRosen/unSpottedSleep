@@ -77,6 +77,13 @@ function parseRespObj(respObj){
   return tracksArr;
 }
 
+//returns the amount of time in minutes as a Number
+//represents how long (at least) the playlist/songs should play for
+//set by the user on the timer layer
+function getSleepTimerDuration(){
+  return Number(document.querySelector('.sleepTimerDurationSetting input').value);
+}
+
 //returns a string that can be used as input to getTracks()
 //the string represents the user's selected genre, the selectable values come from the constants defined above
 function getSelectedGenre(){
@@ -172,9 +179,14 @@ function setupDisplay(){
   
   let sleepDurationSettingElem = document.querySelector('.sleepTimerDurationSetting');
   let display = sleepDurationSettingElem.querySelector('.valDisplay');
+  let summaryDisplay = document.querySelector('.layer-summary .summaryTime');
   let inputElem = sleepDurationSettingElem.querySelector('input[type="range"]');
-  inputElem.addEventListener('input', () => display.textContent = Number(inputElem.value));
+  inputElem.addEventListener('input', () => {
+    display.textContent = Number(inputElem.value);
+    summaryDisplay.innerHTML = inputElem.value + ' minutes';
+  });
   display.textContent = Number(inputElem.value);
+  summaryDisplay.innerHTML = inputElem.value + ' minutes';
 }
 
 //helper function for .toFixed in setupDisplay
