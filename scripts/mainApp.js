@@ -35,6 +35,9 @@ let uId;
 let postResp;
 let tracks;
 
+//setting up event handler to fill in candidates for the candidate pool
+document.querySelector('.layer-options .forward').addEventListener('click', populateCandidatePool);
+
 //beginning of functions----------------------------------------------------
 //makes a playlist, returns a Promise
 function generatePlaylist(){
@@ -58,6 +61,28 @@ function getTracks(genre){
     .then(resp => resp.json())
     .then(parseRespObj)
     .then(recTracks => tracks = recTracks);
+}
+
+//returns a promise that resolves with undefined if successful
+//used to populate the candidate pool ul element with the
+//potential track names that will be randomly selected w/ replacement
+//for the playlist to be generated
+async function populateCandidatePool(){
+  tracks = [];
+  if(!uId) await getUserId(accessToken);
+  await getTracks(getSelectedGenre());
+  
+  let ulElem = document.querySelector('.candidatePool ul');
+  for(const liElem of ulElem.querySelector('li')){
+    ulElem.removeChild(liElem);
+  }
+  
+  for(const track of tracks){
+    let newLi = document.createElement('li');
+    newLi.textContent = track['name'];
+    
+    ulElem.appendChild(newLi);
+  }
 }
 
 //simplifies the recommended tracks response from the api
