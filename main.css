@@ -109,6 +109,19 @@
   color: var(--hot-color, white);
 }
 
+.layer-finished h3, .layer-finished p{
+  margin-left: 5vw;
+}
+.layer-finished h3 {
+  font-size: 1.3em;
+  color: var(--hot-color, white);
+}
+.monospacedHighlight {
+  font-family: monospace;
+  background-color: var(--hot-color, black);
+  color: black;
+}
+
 .unshown {
   display: none;
 }
