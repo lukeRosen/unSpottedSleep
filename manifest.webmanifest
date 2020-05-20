@@ -3,6 +3,7 @@
   "display": "standalone",
   "icons": [
     "src": "unSpottedSleep%20Icon.png",
+    "sizes": "255x255",
     "type": "image/png"
   ],
   "name": "unSpottedSleep",
