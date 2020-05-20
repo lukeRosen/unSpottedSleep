@@ -43,17 +43,10 @@ document.querySelector('.layer-options .forward').addEventListener('click', popu
 //this should be called AFTER getUserId(accessToken) and getTracks(getSelectedGenre()),
 //since they mutate and set "uId" and "tracks"
 async function setSleepTimer(){
+
   await generatePlaylist().catch(err => alert(`Sorry :( Error message was: ${err.message}`));
   
-  let toPublish = [];
-  let currentTimeLeft = getSleepTimerDuration() * 60 * 1000; //minutes to seconds, then seconds to milliseconds
-  
-  let nextSelection;
-  while(currentTimeLeft > 0){
-    nextSelection = tracks[Math.floor(Math.random() * tracks.length)];
-    toPublish.push(nextSelection.uri);
-    currentTimeLeft -= nextSelection.time;
-  }
+  let toPublish = generateSleepSongs(tracks, getSleepTimerDuration());
   
   let response = await fetch(`https://api.spotify.com/v1/playlists/${postResp.id}/tracks`, {
     method: 'POST',
@@ -71,6 +64,44 @@ async function setSleepTimer(){
   }
   
   //should resolve returned promise with undefined if completed without errors
+}
+
+//used to produce an array with the URIs of randomly sampled tracks from the
+//given candidates to meet the specified time given
+//takes in "candidates", the array of tracks that are to be sampled from
+//and "totalMinutes", the number of minutes to populate tracks to meet
+//returns an array of the uris for the tracks to be included for the sleep timer
+//if successful, otherwise throws an exception
+function generateSleepSongs(candidates, totalMinutes){
+  if(candidates.length < 1){
+    alert('Warning! The candidate list is empty.');
+    throw('Empty Candidate List');
+  }
+
+  let storage = [];
+
+  let storageLength = 0;
+  let candidatesCopy = [...candidates];
+  let candidatesLength;
+  let timeLeft = totalDuration * 60 * 1000; //minutes to seconds, then seconds to milliseconds
+  let tempSwap;
+
+  for(timeLeft > 0){
+    candidatesLength = candidates.length - (storageLength % candidates.length);
+    
+    let nextIndex = Math.floor(Math.random() * candidatesLength);
+    
+    storage.push(candidatesCopy[nextIndex].uri);
+    timeLeft -= candidatesCopy[nextIndex].time;
+    
+    tempSwap = candidatesCopy[nextIndex];
+    candidatesCopy[nextIndex] = candidatesCopy[candidatesLength - 1];
+    candidatesCopy[candidatesLength - 1] = tempSwap
+
+    storageLength += 1;
+  }
+
+  return storage;
 }
 
 //makes a playlist, returns a Promise
