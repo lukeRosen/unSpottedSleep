@@ -83,7 +83,7 @@ function generateSleepSongs(candidates, totalMinutes){
   let storageLength = 0;
   let candidatesCopy = [...candidates];
   let candidatesLength;
-  let timeLeft = totalDuration * 60 * 1000; //minutes to seconds, then seconds to milliseconds
+  let timeLeft = totalMinutes * 60 * 1000; //minutes to seconds, then seconds to milliseconds
   let tempSwap;
 
   while(timeLeft > 0){
