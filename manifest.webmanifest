@@ -1,0 +1,12 @@
+{
+  "background_color": "black",
+  "display": "standalone",
+  "icons": [
+    "src": "unSpottedSleep%20Icon.png",
+    "type": "image/png"
+  ],
+  "name": "unSpottedSleep",
+  "short_name": "Sleep",
+  "start_url": "https://lukerosen.github.io/unSpottedSleep",
+  "scope": ""
+}
