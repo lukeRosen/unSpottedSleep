@@ -86,7 +86,7 @@ function generateSleepSongs(candidates, totalMinutes){
   let timeLeft = totalDuration * 60 * 1000; //minutes to seconds, then seconds to milliseconds
   let tempSwap;
 
-  for(timeLeft > 0){
+  while(timeLeft > 0){
     candidatesLength = candidates.length - (storageLength % candidates.length);
     
     let nextIndex = Math.floor(Math.random() * candidatesLength);
