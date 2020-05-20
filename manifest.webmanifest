@@ -8,5 +8,5 @@
   "name": "unSpottedSleep",
   "short_name": "Sleep",
   "start_url": "https://lukerosen.github.io/unSpottedSleep",
-  "scope": ""
+  "scope": "https://lukerosen.github.io/unSpottedSleep"
 }
