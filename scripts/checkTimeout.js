@@ -14,5 +14,5 @@ function checkForTimeout(startTime, timeOutDuration, pollTime){
     return;
   }
   
-  location = 'login';
+  location = 'https://lukerosen.github.io/unSpottedSleep/login.html';
 }
