@@ -2,7 +2,7 @@
   "background_color": "black",
   "display": "standalone",
   "icons": [{
-    "src": "unSpottedSleep%20Icon.png",
+    "src": "unSpottedSleepIcon.png",
     "type": "image/png"
   }],
   "name": "unSpottedSleep",
