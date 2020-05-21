@@ -6,7 +6,7 @@
     "type": "image/png"
   }],
   "name": "unSpottedSleep",
-  "short_name": "Sleep",
+  "short_name": "uSpSleep",
   "start_url": ".",
   "scope": "/"
 }
