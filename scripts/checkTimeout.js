@@ -1,4 +1,4 @@
-const timeOutDuration = (1000 * 60) * 2; //currently set to 50 minutes for timeout
+const timeOutDuration = (1000 * 60) * 50; //currently set to 50 minutes for timeout
 const pollTime = (1000 * 60) * (1 / 60)//currently set to poll every second
 
 let startTime = Date.now(); //when the webpage was loaded in ms from Unix Epoch
