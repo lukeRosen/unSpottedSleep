@@ -1,6 +1,6 @@
 {
   "background_color": "black",
-  "display": "standalone",
+  "displaya": "standalone",
   "icons": [{
     "src": "unSpottedSleepIcon.png",
     "type": "image/png"
