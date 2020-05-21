@@ -9,10 +9,10 @@ checkForTimeout(startTime, timeOutDuration, pollTime);
 //redirects user to login screen after timeout or rechecks after at least pollTime has elapsed
 function checkForTimeout(startTime, timeOutDuration, pollTime){
   console.log('%cJust checked for timeout.', 'background-color: red;');
-  if(timeOutDuration > (Date.now - startTime)){
+  if(timeOutDuration > (Date.now() - startTime)){
     setTimeout(checkForTimeout, pollTime, startTime, timeOutDuration, pollTime);
     return;
   }
   
-  location = '/login';
+  location = 'login';
 }
