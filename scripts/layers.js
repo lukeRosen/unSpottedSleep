@@ -41,5 +41,9 @@ document.querySelector('.layer-summary .backward').addEventListener('click', () 
 //summary -> finished
 document.querySelector('.layer-summary .forward').addEventListener('click', routeToFinished);
 function routeToFinished(){
-  setSleepTimer().then(setLayer('finished')).catch(console.warn);
+  setSleepTimer().then(setLayer('finished'))
+    .then(() => setTimeout(
+      () => location = '/unSpottedSleep/login',
+      3000))
+    .catch(console.warn);
 }
